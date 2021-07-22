@@ -6,7 +6,7 @@ const { placeService } = require('../../services');
 
 const createPlace = catchAsync(async (req, res) => {
   const place = await placeService.add(req.body);
-  res.status(httpStatus.CREATED).send(place);
+  res.status(httpStatus.CREATED).send({ success: true, data: place});
 });
 
 

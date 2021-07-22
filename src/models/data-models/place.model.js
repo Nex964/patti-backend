@@ -12,8 +12,31 @@ const placeSchema = mongoose.Schema(
       trim: true,
       required: true
     },
+    desc: {
+      type: String,
+      trim: true,
+      required: true
+    },
+    media: [{
+      type: String,
+      required: true
+    }],
+    tags: [{
+      type: String,
+      required: true
+    }],
+    address: {
+      type: String,
+      trim: true,
+      required: true
+    },
+    activities:  [{
+      type: String,
+      required: true
+    }],
+    userId: false,
     loc: {
-      type: { type: String },
+      type: { type: String, default: 'Point' },
       coordinates: [Number],
     },
     meta: [{
@@ -22,6 +45,7 @@ const placeSchema = mongoose.Schema(
     }]
   },
   {
+    strict: false,
     timestamps: true,
   }
 );
