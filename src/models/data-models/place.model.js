@@ -39,6 +39,9 @@ const placeSchema = mongoose.Schema(
       type: { type: String, default: 'Point' },
       coordinates: [Number],
     },
+    category: {
+      type: String,
+    },
     meta: [{
       name: { type: String },
       value: { type: String }

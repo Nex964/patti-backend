@@ -23,8 +23,6 @@ const add = async (placeBody) => {
  */
  const query = async (filter, options) => {
 
-  const sq = require('../../../nc.json');
-
   // await PlaceModel.create(sq.features.map(e => {
   //   const obj = {
   //     name: e.properties.Name,
@@ -40,13 +38,18 @@ const add = async (placeBody) => {
   //   return obj;
   // }));
 
-  console.log('Created');
-
   const places = await PlaceModel.paginate(filter, options);
+  return places;
+};
+
+ const get = async (filter, options) => {
+
+  const places = await PlaceModel.findOne(filter);
   return places;
 };
 
 module.exports = {
   add,
-  query
+  query,
+  get
 };

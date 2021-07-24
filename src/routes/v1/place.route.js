@@ -11,6 +11,11 @@ router
   .post(placeController.createPlace)
   .get(placeController.getPlaces);
 
+
+router
+  .route('/:placeId')
+  .get(placeController.getPlace);
+
 module.exports = router;
 
 /**

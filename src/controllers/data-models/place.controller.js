@@ -22,9 +22,28 @@ const getPlaces = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getPlace = catchAsync(async (req, res) => {
+
+  const filter = {};
+
+  console.log(req.params);
+
+  const placeId = req.params.placeId;
+
+  if(placeId){
+    filter.$or = [];
+    filter.$or.push({ name: { $regex: placeId.replace('%20', ' '), $options: 'i' } })
+    filter.$or.push({ _id: placeId })
+  }
+
+  const result = await placeService.get(filter);
+  res.send({success: result != null, result});
+});
+
 
 
 module.exports = {
   createPlace,
-  getPlaces
+  getPlaces,
+  getPlace
 };
