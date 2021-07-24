@@ -31,7 +31,7 @@ const placeSchema = mongoose.Schema(
       required: true
     },
     activities:  [{
-      type: String,
+      type: Object,
       required: true
     }],
     userId: false,
