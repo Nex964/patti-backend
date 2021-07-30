@@ -11,9 +11,18 @@ const userSchema = mongoose.Schema(
       required: false,
       trim: true,
     },
+    cc: {
+      type: String,
+      default: '+91'
+    },
+    phone: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     email: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
       trim: true,
       lowercase: true,
@@ -25,7 +34,7 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
       minlength: 8,
       validate(value) {
