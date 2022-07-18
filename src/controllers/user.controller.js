@@ -10,7 +10,10 @@ const createUser = catchAsync(async (req, res) => {
 });
 
 const getUsers = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'role']);
+  const filter = {};
+  if(req.query.text){
+    filter.name = { $regex: req.query.text, $options: 'i' };
+  }
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await userService.queryUsers(filter, options);
   res.send(result);
@@ -26,7 +29,7 @@ const getUser = catchAsync(async (req, res) => {
 
 const updateUser = catchAsync(async (req, res) => {
   const user = await userService.updateUserById(req.params.userId, req.body);
-  res.send(user);
+  res.send({success: true, data: user});
 });
 
 const deleteUser = catchAsync(async (req, res) => {

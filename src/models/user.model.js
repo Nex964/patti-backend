@@ -20,6 +20,16 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    gender: {
+      type: String,
+      required: false,
+      unique: false,
+    },
+    dob: {
+      type: Date,
+      required: false,
+      unique: false,
+    },
     email: {
       type: String,
       required: false,
@@ -56,6 +66,7 @@ const userSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    strict: false
   }
 );
 

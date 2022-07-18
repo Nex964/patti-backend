@@ -4,3 +4,6 @@ module.exports.tokenService = require('./token.service');
 module.exports.userService = require('./user.service');
 module.exports.clientService = require('./client-user.service');
 module.exports.placeService = require('./data-modals/place.service');
+module.exports.eventService = require('./data-modals/event.service');
+module.exports.productService = require('./data-modals/product.service');
+module.exports.railService = require('./data-modals/rail.service');

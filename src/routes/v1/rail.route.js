@@ -1,21 +1,17 @@
 const express = require('express');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
-const userValidation = require('../../validations/user.validation');
-const userController = require('../../controllers/user.controller');
+const railController = require('../../controllers/data-models/rail.controller');
 
 const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageUsers'), validate(userValidation.createUser), userController.createUser)
-  .get(auth(), userController.getUsers);
+  .get(railController.getStations);
 
-router
-  .route('/:userId')
-  .get(auth('getUsers'), validate(userValidation.getUser), userController.getUser)
-  .post(auth('manageUsers'), userController.updateUser)
-  .delete(auth('manageUsers'), validate(userValidation.deleteUser), userController.deleteUser);
+// router
+//   .route('/:railId')
+//   .get(railController.getRail)
+//   .post(railController.updateRail)
+//   .delete(railController.deleteRail);
 
 module.exports = router;
 
@@ -28,7 +24,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /users:
+ * /railss:
  *   post:
  *     summary: Create a user
  *     description: Only admins can create other users.
