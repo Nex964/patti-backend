@@ -12,7 +12,7 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   autoIncrement.initialize(mongoose.connection);
   logger.info('Initalised autoIncreament');
 
-  server = app.listen(process.env.PORT || config.port, () => {
+  server = app.listen(process.env.PORT || config.port, '0.0.0.0', () => {
     logger.info(`Listening to port ${config.port}`);
   });
 });
