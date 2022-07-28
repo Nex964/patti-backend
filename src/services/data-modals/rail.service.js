@@ -14,17 +14,17 @@ const ApiError = require('../../utils/ApiError');
  */
 
 
- const queryStations = async (filter, options) => {
+const queryStations = async (filter, options) => {
   const stations = await StationModel.paginate(filter, options);
   return stations;
 };
 
- const queryTrains = async (filter, options) => {
+const queryTrains = async (filter, options) => {
   const trains = await TrainModel.paginate(filter, options);
   return trains;
 };
 
- const querySchedule = async (filter, options) => {
+const querySchedules = async (filter, options) => {
   const schedules = await ScheduleModel.paginate(filter, options);
   return schedules;
 };
@@ -32,5 +32,5 @@ const ApiError = require('../../utils/ApiError');
 module.exports = {
   queryStations,
   queryTrains,
-  querySchedule,
+  querySchedules,
 };

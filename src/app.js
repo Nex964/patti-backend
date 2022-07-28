@@ -50,8 +50,8 @@ if (config.env === 'production') {
   app.use('/v1/auth', authLimiter);
 }
 
-app.get('/index', (req, res) => {
-  res.send({message: 'nice'})
+app.get('/', (req, res) => {
+  res.send({ message: 'nice' })
 })
 
 // v1 api routes

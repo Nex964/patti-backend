@@ -4,17 +4,23 @@ const config = require('./config/config');
 const logger = require('./config/logger');
 const { autoIncrement } = require('./models/plugins');
 
+console.log('Something')
 
 let server;
 mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
+  console.log('Nice')
   logger.info('Connected to MongoDB');
-      
+
   autoIncrement.initialize(mongoose.connection);
   logger.info('Initalised autoIncreament');
 
-  server = app.listen(process.env.PORT || config.port, '0.0.0.0', () => {
+  server = app.listen(3000, () => {
+    console.log('Running')
     logger.info(`Listening to port ${config.port}`);
   });
+}).catch(err => {
+  console.log('Error');
+  console.log(err);
 });
 
 const exitHandler = () => {

@@ -7,6 +7,14 @@ router
   .route('/')
   .get(railController.getStations);
 
+router
+  .route('/schedules')
+  .get(railController.getSchedules);
+
+router
+  .route('/trains')
+  .get(railController.getTrains);
+
 // router
 //   .route('/:railId')
 //   .get(railController.getRail)
